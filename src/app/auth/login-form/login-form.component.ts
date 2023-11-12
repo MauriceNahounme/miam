@@ -30,7 +30,7 @@ export class LoginFormComponent implements OnInit {
                 const token = response.access_token;
 
                 this.authService.setToken(token);
-                this.router.navigate(['/users']);
+                this.router.navigate(['/']);
             },
             (err) => {
                 console.error('Login failed: ', err);

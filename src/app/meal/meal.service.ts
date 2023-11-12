@@ -25,14 +25,6 @@ export class MealService {
         return this.mealsCache$;
     }
 
-    createMeal(meal: Meal): Observable<Meal> {
-        return this.http.post<Meal>(`${this.apiHost}/posts`, meal).pipe(
-            tap(() => {
-                this.mealsCache$ = of([]);
-            })
-        );
-    }
-
     private handleError(error: any) {
       console.error('Une erreur s\'est produite', error);
       return throwError(error);
