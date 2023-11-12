@@ -14,11 +14,10 @@ export class MealService {
     constructor(private http: HttpClient) {
     }
 
-    getMeals(searchTerm: string): Observable<Meal[]> {
-      const params = { s: searchTerm };
+    getMeals(): Observable<Meal[]> {
 
         if (!this.mealsCache$) {
-            this.mealsCache$ = this.http.get<Meal[]>(`${this.apiHost},`, { params }).pipe(
+            this.mealsCache$ = this.http.get<Meal[]>(`${this.apiHost},`).pipe(
                 shareReplay(1),
                 catchError(this.handleError)
             );
